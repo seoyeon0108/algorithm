@@ -1,8 +1,14 @@
-let fs = require("fs");
-let input = fs.readFileSync("/dev/stdin").toString().split("\n");
-let len = parseInt(input[0]);
-for (let i = 1; i <= len; i++) {
-  let words = input[i].split(" ");
-  let answer = words.map((word) => word.split("").reverse().join("")).join(" ");
-  console.log(answer);
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+// 제출전 경로 수정하기 '/dev/stdin'
+
+let num = input.shift();
+let answer = "";
+
+for (let i = 0; i < num; i++) {
+    let words = input[i].split(" ");
+    for (let word of words) {
+      answer += `${word.split("").reverse().join("")} `;
+    }
+    answer += '\n'
 }
+console.log(answer);
