@@ -1,3 +1,8 @@
 function solution(n) {
-    return [...n.toString()].reverse().map(v => +v);
+    var nStr = n.toString();
+    var answer = [];
+    for( let i = nStr.length-1; i >= 0; i-- ) {
+      answer.push(Number(nStr[i]));
+    }
+    return answer;
 }
