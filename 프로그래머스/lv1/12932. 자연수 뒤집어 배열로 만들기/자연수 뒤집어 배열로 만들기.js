@@ -1,3 +1,3 @@
 function solution(n) {
-    return [...(n + '')].reverse().map(v => +v);
+    return [...n.toString()].reverse().map(v => +v);
 }
