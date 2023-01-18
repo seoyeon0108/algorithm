@@ -1,20 +1,4 @@
-function solution(a, b) {
-    if(a === b) return a;
-    
-    let big = 0;
-    let small = 0;
-    if(a > b){
-        big = a;
-        small = b;
-    }else{
-        big = b;
-        small =a;
-    }
-    
-    let sum = small;
-    while(small != big){
-        small++
-        sum += small;
-    }
-    return sum;
+function solution(a, b, s = 0) {
+    for (var i = Math.min(a, b); i <= Math.max(a, b); i++) s += i;
+    return s;
 }
