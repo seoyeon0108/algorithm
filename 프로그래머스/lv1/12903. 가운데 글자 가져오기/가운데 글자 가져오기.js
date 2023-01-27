@@ -1,6 +1,4 @@
 function solution(s) {
-    let sLen = s.length
-    let oddN = parseInt(sLen/2)
-    let evenN = sLen/2
-    return sLen % 2 ? s.slice(oddN, oddN+1) : s.slice(evenN-1, evenN+1) ;
+    let sLen = s.length 
+    return sLen % 2 ? s.slice(parseInt(sLen/2), parseInt(sLen/2)+1) : s.slice((sLen/2)-1, (sLen/2)+1) ;
 }
