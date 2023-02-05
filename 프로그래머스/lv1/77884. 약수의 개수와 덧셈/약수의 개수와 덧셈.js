@@ -1,5 +1,5 @@
 function solution(left, right) {
-    let answer = [];
+    let answer = 0;
     for(let i = left; i <= right; i++ ){
         let divisor = [];
         for(let j = 1; j <= Math.sqrt(i); j++){
@@ -10,7 +10,7 @@ function solution(left, right) {
                 }
             }
         }
-        answer.push(divisor);
+        answer += divisor.length % 2 ? -i : i
     }
-    return answer.reduce((acc,cur)=> acc + (cur.length % 2 ? -Math.max(...cur) : Math.max(...cur)), 0);
+    return answer;
 }
