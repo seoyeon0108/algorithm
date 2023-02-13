@@ -1,20 +1,19 @@
 function solution(n, words) {
-    let answer = [0,0];
-    // 바로 앞의 단어의 뒷 글자와 같지 않은 단어를 말하면 탈락
-    // 앞에서 말했던 단어와 같은 단어를 말하면 탈락
-    for (let i = 1; i < words.length; i++){
-        if(words[i-1].slice(-1) != words[i][0]){
-            answer[0] = (i+1) % n ? (i+1) % n : n
-            answer[1] = parseInt(i/n) + 1
-            return answer;
-        }
-        if(words.indexOf(words[i]) != words.lastIndexOf(words[i])){
-            let num = words.lastIndexOf(words[i])
-            answer[0] = (num+1) % n ? (num+1) % n : n
-            answer[1] = parseInt(num/n) + 1
-            return answer;
-        }
-        
+  const previousWords = [words[0]]; // 이미 말한 단어들
+  let turn = 1;
+
+  for (let i = 1; i < words.length; i++) {
+    const currentFirst = words[i][0];
+    const previousLast = previousWords[i - 1][previousWords[i - 1].length - 1];
+
+    if (i % n === 0) turn++;
+    
+    if (currentFirst !== previousLast || previousWords.includes(words[i])) {
+      return [(i % n) + 1, turn]; // 0번째 인덱스부터 첫번째 사람이기 때문에 +1
     }
-    return answer;
+
+    previousWords[i] = words[i];
+  }
+
+  return [0, 0];
 }
