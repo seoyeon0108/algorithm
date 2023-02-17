@@ -1,13 +1,13 @@
 function solution(sizes) {
-    let answer = [0, 0];
+    let w = 0;
+	let h = 0;
     
     for(el of sizes){
-        let big = Math.max(...el);
-        let small = Math.min(...el);
-        if(answer[0] < big) answer[0] = big;
-        if(answer[1] < small) answer[1] = small;
+        let [a, b] = el.sort((a,b) => b - a);
+        if(w < a) w = a;
+        if(h < b) h = b;
         
     }
     
-    return answer[0] * answer[1];
+    return w * h;
 }
