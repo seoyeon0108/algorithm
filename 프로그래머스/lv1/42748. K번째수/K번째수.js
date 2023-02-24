@@ -2,9 +2,11 @@ function solution(array, commands) {
     let result = [];
     
     for(let el of commands){
-        // el[0] : i , el[1] : j, el[0] : k
-        let newArr = array.slice(el[0]-1, el[1]).sort((a,b) => a-b);
-        result.push(newArr[(el[2]-1)]);
+        let i = el[0]-1;
+        let j = el[1];
+        let k = el[2]-1;
+        let newArr = array.slice(i, j).sort((a,b) => a-b);
+        result.push(newArr[k]);
     }
     
     return result;
