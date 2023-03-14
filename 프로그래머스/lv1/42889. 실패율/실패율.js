@@ -3,7 +3,7 @@ function solution(N, stages) {
     for(let i = 1; i <= N; i++){
         let arrivalP = stages.filter(v => v >= i).length;
         let notClearP = stages.filter(v => v === i).length;
-        let v = arrivalP === 0 ? 0 : notClearP / arrivalP;
+        let v = arrivalP === 0 ? 0 : notClearP/ arrivalP
         result.push(v);
     }
     
