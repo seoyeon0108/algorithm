@@ -10,16 +10,16 @@ function solution(answers) {
     }
     
     //수포자들이 맞춘 정답 수
-    let correct = [0,0,0]
-    correct[0] = person1.filter((el,i) => el === answers[i]).length;
-    correct[1] = person2.filter((el,i) => el === answers[i]).length;
-    correct[2] = person3.filter((el,i) => el === answers[i]).length;
+    let correct = [0,0,0,0]
+    correct[1] = person1.filter((el,i) => el === answers[i]).length;
+    correct[2] = person2.filter((el,i) => el === answers[i]).length;
+    correct[3] = person3.filter((el,i) => el === answers[i]).length;
     
     // 제일 많이 맞춘 정답수를 구해서 수포자들의 맞춘 정답수랑 비교해서 같은수만 result에 push한다.
     let max = Math.max(...correct);
     let result = []
-    for(let j = 0; j < 3; j++){
-        if(max === correct[j]) result.push(j+1);
+    for(let j = 1; j <= 3; j++){
+        if(max === correct[j]) result.push(j);
     }
     
     return result;
