@@ -7,6 +7,7 @@ function solution(n, lost, reserve) {
     
     let reserveBox = []; // 여분을 가지고 있는 학생 담는 박스
     
+    //여벌 가져온 학생이 도난당한경우, 그 학생을 lost에서 제거
     for(let el of reserve){
         let lostIdx = lost.indexOf(el);
         if(lostIdx != -1){ // el이 lost에 포함될때
@@ -15,17 +16,7 @@ function solution(n, lost, reserve) {
         }else reserveBox.push(el);
     }
     
-    //여벌 가져온 학생이 도난당한경우
-    // for(let el of reserve){
-    //     let lostIdx = lost.indexOf(el);
-    //     let reserveIdx = reserve.indexOf(el);
-    //     if(lostIdx != -1){
-    //         lost.splice(lostIdx,1);
-    //         reserve.splice(reserveIdx,1);
-    //         count++;
-    //     }
-    // }
-    
+    // 나머지 빌려줄 수 있는 경우
     for(let a of reserveBox){
         for(let b of lost){
             if(a + 1 === b || a - 1 === b){
